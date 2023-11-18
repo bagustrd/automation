@@ -1,24 +1,20 @@
 package org.maxxitani.mttapp.testcases.utils;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.time.Duration;
-import java.util.Properties;
 
-import org.maxxitani.mttapp.utils.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
+import org.maxxitani.mttapp.utils.AppiumUtils;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class MainConfig extends AppiumUtils {
 	
@@ -27,30 +23,38 @@ public class MainConfig extends AppiumUtils {
 	public AppiumDriverLocalService service;
 	
 	@BeforeClass
-	public void configureAppium() throws MalformedURLException, IOException, InterruptedException 
+	public void configureAppium() throws IOException
 	{
-		//Properties prop = new Properties();
-		//FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"src\\main\\java\\org\\maxxiagri\\maiapp\\resources\\data.properties");
-		//prop.load(fis);
-		//String ipAddress = prop.getProperty("ipAddress");
-		//String port = prop.getProperty("port");
-		
-		//service = startAppiumServer(ipAddress,Integer.parseInt(port));
-		
-		service = new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users\\bimo8\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
-				.withIPAddress("http://127.0.0.1").usingPort(4723).build();
-		service.start(); //need to fix
-		Thread.sleep(21000);
-		
-		UiAutomator2Options options = new UiAutomator2Options();
-		options.setDeviceName("samsung SM-X205");
-		options.setApp("C:\\Users\\bimo8\\eclipse-workspace\\maiapp\\src\\test\\java\\resources\\salesapp.apk");
-		
-		
-		//AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), null);
-		driver = new AndroidDriver(options);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		File appiumJS = new File("C:\\Users\\bagus\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js");
+
+		if (!appiumJS.exists()) {
+			throw new IOException("C:\\Users\\bagus\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js");
+		}
+
+		service = new AppiumServiceBuilder()
+				.withAppiumJS(appiumJS)
+				.withIPAddress("127.0.0.1")
+				.usingPort(4723)
+				.build();
+
+		try {
+			service.start();
+			Thread.sleep(21000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setCapability("deviceName", "samsung SM-X205");
+		capabilities.setCapability("platformName", "Android");
+		capabilities.setCapability("app", "C:\\Automation\\src\\test\\java\\resources\\app.apk");
+		capabilities.setCapability("automationName", "UIAutomator2");
+
+		driver = new AndroidDriver(service.getUrl(), capabilities);
+
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	}
+
 	@AfterClass
 	public void tearDown()
 	{
