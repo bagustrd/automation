@@ -31,8 +31,8 @@ public class Login_001 extends MainConfig {
 	{
 		
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.setuserName(input.get("user"));
-		loginPage.setPassword(input.get("password"));
+		//loginPage.setuserName(input.get("user"));
+		//loginPage.setPassword(input.get("password"));
 		loginPage.loginbutton();
 		loginPage.profile();
 		
