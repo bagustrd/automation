@@ -29,6 +29,10 @@ public class LoginSuccess01 extends MainConfig {
 
 		String validatedEmail = driver.findElement(AppiumBy.xpath(emailElementXPath)).getText();
 
+		if (!validatedEmail.equals(email)) {
+			System.out.println("Email tidak sesuai: " + email);
+		}
+
 		AssertJUnit.assertEquals(validatedEmail, email);
 
 		tearDown();
