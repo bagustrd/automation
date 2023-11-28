@@ -17,7 +17,7 @@ public class LoginPage {
 	}
 
 	@AndroidFindBy(id="com.android.permissioncontroller:id/permission_allow_foreground_only_button")
-	private WebElement permissionLoc;
+	private WebElement permissionLocation;
 
 
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.widget.Button")
@@ -29,7 +29,7 @@ public class LoginPage {
 
 
 	@AndroidFindBy(id="com.android.permissioncontroller:id/permission_allow_foreground_only_button")
-	private WebElement permissionCam;
+	private WebElement permissionCamera;
 
 	@AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[7]/android.view.ViewGroup/android.widget.ImageView")
 	private WebElement profile;
@@ -37,9 +37,9 @@ public class LoginPage {
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[13]")
 	private WebElement email;
 
-	public void permissionLoc()
+	public void permissionLocation()
 	{
-		permissionLoc.click();
+		permissionLocation.click();
 	}
 
 	public void loginbutton()
@@ -52,9 +52,9 @@ public class LoginPage {
 		account.click();
 	}
 
-	public void permissionCam()
+	public void permissionCamera()
 	{
-		permissionCam.click();
+		permissionCamera.click();
 	}
 
 	public void profile()
@@ -67,7 +67,7 @@ public class LoginPage {
 
 	}
 
-	
+
 }
 
 
