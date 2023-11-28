@@ -17,10 +17,10 @@ public class LoginSuccess01 extends MainConfig {
 	@Test(dataProvider = "getData")
 	public void successLoginFO(String email) throws MalformedURLException, InterruptedException {
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.permissionLoc();
+		loginPage.permissionLocation();
 		loginPage.loginbutton();
 		loginPage.account();
-		loginPage.permissionCam();
+		loginPage.permissionCamera();
 		loginPage.profile();
 
 		Thread.sleep(3000);
