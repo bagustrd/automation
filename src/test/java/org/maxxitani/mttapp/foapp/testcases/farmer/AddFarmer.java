@@ -15,10 +15,10 @@ public class AddFarmer extends MainConfig {
         FarmerPage farmerPage = new FarmerPage(driver);
 
         // Login to the app
-        loginPage.permissionLoc();
+        loginPage.permissionLocation();
         loginPage.loginbutton();
         loginPage.account();
-        loginPage.permissionCam();
+        loginPage.permissionCamera();
 
         // Navigate to the farmer page
         farmerPage.buttonFarmer();
@@ -52,8 +52,10 @@ public class AddFarmer extends MainConfig {
 
         // Input the random address
         farmerPage.inputAlamat(randomAlamat);
+        farmerPage.tapNextButton();
+        //Add wait
+        Thread.sleep(2000);
 
-        farmerPage.next1();
         farmerPage.scrollUp();
         farmerPage.UploadKTP();
         farmerPage.KTPviaCam();
@@ -61,12 +63,27 @@ public class AddFarmer extends MainConfig {
         farmerPage.TakeKTP();
         farmerPage.inputNoKTP(randomNoKTP);
         farmerPage.InputRandomBirthDate();
+        farmerPage.scrollDown();
         farmerPage.uploadSwafooto();
         farmerPage.SwafotoViaCam();
         farmerPage.takeSwafoto();
         farmerPage.boxAggrement();
-        farmerPage.nextPreview();
-        farmerPage.saveFarmer();
-        farmerPage.submitcomfirm();
+        farmerPage.buttonNext();
+
+        //Add wait
+        Thread.sleep(2000);
+        farmerPage.tapNextButton();
+        farmerPage.submitButton();
+        farmerPage.submitComfirm();
+
+        boolean isSuccess = farmerPage.isSuccessMessageDisplayed();
+
+        if (isSuccess) {
+            System.out.println("Pesan keberhasilan muncul!");
+        } else {
+            System.out.println("Pesan keberhasilan tidak muncul.");
+        }
+
+
     }
 }
