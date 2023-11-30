@@ -8,14 +8,13 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.List;
 
 public class LoginSuccess01 extends MainConfig {
 
 	@Test(dataProvider = "getData")
-	public void successLoginFO(String email) throws MalformedURLException, InterruptedException {
+	public void successLoginFO(String email) throws InterruptedException {
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.permissionLocation();
 		loginPage.loginbutton();

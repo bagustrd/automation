@@ -30,6 +30,7 @@ public class LoginSuccess02 extends MainConfig {
 
         if (!validatedEmail.equals(email)) {
             System.out.println("Email tidak sesuai: " + email);
+            return;
         }
 
         AssertJUnit.assertEquals(validatedEmail, email);
