@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.List;
 import java.util.Random;
 
 public class FarmerPage {
@@ -26,6 +25,18 @@ public class FarmerPage {
 
     @AndroidFindBy(xpath = "//android.view.ViewGroup[3]/android.view.ViewGroup")
     private WebElement buttonFarmer;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.EditText")
+    private WebElement buttonSearchFarmer;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.EditText")
+    private WebElement fieldSearch;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.EditText")
+    private WebElement fillinFieldSearch;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView[1]")
+    private WebElement NameFarmer;
 
     //Create New Farmer
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.widget.TextView")
@@ -107,13 +118,25 @@ public class FarmerPage {
     private WebElement buttonSubmit;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[4]/android.widget.TextView")
-    private  WebElement submitComfirm;
+    private WebElement submitComfirm;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView[1]")
     private WebElement successCreateFarmer;
 
     public void buttonFarmer() {
         buttonFarmer.click();
+    }
+
+    public void buttonSearchFarmer() {
+        buttonSearchFarmer.click();
+    }
+
+    public void fieldSearch() {
+        fieldSearch.click();
+    }
+
+    public void fillinFieldSearch(String NameFarmer) {
+        fillinFieldSearch.sendKeys(NameFarmer);
     }
 
     public void addFarmer() {
@@ -177,11 +200,11 @@ public class FarmerPage {
         inputAlamat.sendKeys(address);
     }
 
-    public void UploadKTP(){
+    public void UploadKTP() {
         UploadKTP.click();
     }
 
-    public void KTPviaCam(){
+    public void KTPviaCam() {
         KTPviaCam.click();
     }
 
@@ -197,15 +220,15 @@ public class FarmerPage {
         inputNoKTP.sendKeys(NoKTP);
     }
 
-    public void uploadSwafooto(){
+    public void uploadSwafooto() {
         uploadSwafoto.click();
     }
 
-    public void SwafotoViaCam(){
+    public void SwafotoViaCam() {
         SwafotoViaCam.click();
     }
 
-    public void takeSwafoto(){
+    public void takeSwafoto() {
         takeSwafoto.click();
     }
 
@@ -213,7 +236,7 @@ public class FarmerPage {
         boxAggrement.click();
     }
 
-    public void buttonNext(){
+    public void buttonNext() {
         buttonNext.click();
     }
 
@@ -223,6 +246,14 @@ public class FarmerPage {
 
     public void submitComfirm() {
         submitComfirm.click();
+    }
+
+    public void tapEnterSearch() {
+        int xCoordinate = 1716;
+        int yCoordinate = 908;
+
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction.tap(PointOption.point(xCoordinate, yCoordinate)).perform();
     }
 
     public void tapNextButton() {
@@ -240,7 +271,6 @@ public class FarmerPage {
         TouchAction touchAction = new TouchAction(driver);
         touchAction.tap(PointOption.point(xCoordinate, yCoordinate)).perform();
     }
-
 
     public String generateRandomName() {
         String[] firstNames = {"John", "Jane", "Bob", "Alice", "Michael", "Paul"};
