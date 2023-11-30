@@ -27,6 +27,9 @@ public class LoginPage {
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.LinearLayout")
 	private WebElement account;
 
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.LinearLayout")
+	private WebElement accountFailed;
+
 
 	@AndroidFindBy(id="com.android.permissioncontroller:id/permission_allow_foreground_only_button")
 	private WebElement permissionCamera;
@@ -52,6 +55,10 @@ public class LoginPage {
 		account.click();
 	}
 
+	public void accountFailed() {
+		accountFailed.click();
+	}
+
 	public void permissionCamera()
 	{
 		permissionCamera.click();
@@ -60,11 +67,6 @@ public class LoginPage {
 	public void profile()
 	{
 		profile.click();
-	}
-	public void email()
-	{
-		email.getText();
-
 	}
 
 
