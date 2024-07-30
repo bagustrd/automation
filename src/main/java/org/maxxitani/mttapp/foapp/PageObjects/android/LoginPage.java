@@ -1,12 +1,9 @@
 package org.maxxitani.mttapp.foapp.PageObjects.android;
 
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v85.input.model.TouchPoint;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {

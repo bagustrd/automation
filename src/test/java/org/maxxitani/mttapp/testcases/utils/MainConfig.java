@@ -31,6 +31,10 @@ public class MainConfig extends AppiumUtils {
 			throw new IOException("C:\\Users\\bagus\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js");
 		}
 
+		if (!appiumJS.exists()) {
+			throw new IOException("Appium JS file not found at: " + appiumJS.getAbsolutePath());
+		}
+
 		service = new AppiumServiceBuilder()
 				.withAppiumJS(appiumJS)
 				.withIPAddress("127.0.0.1")
