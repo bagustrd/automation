@@ -17,6 +17,7 @@ public class LoginSuccess01 extends MainConfig {
 	public void successLoginFO(String email) throws InterruptedException {
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.permissionLocation();
+		loginPage.ClosePermissionNotification();
 		loginPage.loginbutton();
 		loginPage.account();
 		loginPage.permissionCamera();

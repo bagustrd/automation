@@ -14,9 +14,10 @@ import java.util.List;
 
 public class LoginSuccess02 extends MainConfig {
     @Test(dataProvider = "getData")
-    public void successLoginFO(String email) throws MalformedURLException, InterruptedException {
+    public void successLoginFO(String email) throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.permissionLocation();
+        loginPage.ClosePermissionNotification();
         loginPage.loginbutton();
         loginPage.account();
         loginPage.permissionCamera();

@@ -16,9 +16,10 @@ import java.util.List;
 public class LoginFailed001 extends MainConfig {
 
     @Test(dataProvider = "getData")
-    public void validateAccountNotRegisteredO(String expectedErrorMessage) throws MalformedURLException, InterruptedException {
+    public void validateAccountNotRegistered(String expectedErrorMessage) {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.permissionLocation();
+        loginPage.ClosePermissionNotification();
         loginPage.loginbutton();
         loginPage.accountFailed();
 

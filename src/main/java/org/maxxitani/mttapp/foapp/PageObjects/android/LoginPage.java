@@ -1,9 +1,12 @@
 package org.maxxitani.mttapp.foapp.PageObjects.android;
 
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v85.input.model.TouchPoint;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
@@ -19,17 +22,17 @@ public class LoginPage {
 	@AndroidFindBy(id="com.android.permissioncontroller:id/permission_allow_foreground_only_button")
 	private WebElement permissionLocation;
 
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView")
+	private WebElement ClosePermissionNotification;
 
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.widget.Button")
 	private WebElement loginButton;
-
 
 	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.LinearLayout")
 	private WebElement account;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.LinearLayout")
 	private WebElement accountFailed;
-
 
 	@AndroidFindBy(id="com.android.permissioncontroller:id/permission_allow_foreground_only_button")
 	private WebElement permissionCamera;
@@ -43,6 +46,10 @@ public class LoginPage {
 	public void permissionLocation()
 	{
 		permissionLocation.click();
+	}
+
+	public void ClosePermissionNotification() {
+		ClosePermissionNotification.click();
 	}
 
 	public void loginbutton()
